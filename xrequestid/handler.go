@@ -1,7 +1,7 @@
 package xrequestid
 
 import (
-	multiint "github.com/mercari/go-grpc-interceptor/multiinterceptor"
+	multiint "github.com/higebu/go-grpc-interceptor/multiinterceptor"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 )
