@@ -12,7 +12,7 @@ import (
 var DefaultXRequestIDKey = "x-request-id"
 
 func HandleRequestID(ctx context.Context, validator requestIDValidator) string {
-	md, ok := metadata.FromContext(ctx)
+	md, ok := metadata.FromIncomingContext(ctx)
 	if !ok {
 		return newRequestID()
 	}
@@ -35,7 +35,7 @@ func HandleRequestID(ctx context.Context, validator requestIDValidator) string {
 }
 
 func HandleRequestIDChain(ctx context.Context, validator requestIDValidator) string {
-	md, ok := metadata.FromContext(ctx)
+	md, ok := metadata.FromIncomingContext(ctx)
 	if !ok {
 		return newRequestID()
 	}

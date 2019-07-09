@@ -81,7 +81,7 @@ func TestUnaryServerWithReqeustID(t *testing.T) {
 
 	ctx := context.Background()
 	md := metadata.Pairs(DefaultXRequestIDKey, requestID)
-	ctx = metadata.NewContext(ctx, md)
+	ctx = metadata.NewIncomingContext(ctx, md)
 	_, err := UnaryServerInterceptor()(ctx, "xyz", unaryInfo, unaryHandler)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
@@ -106,7 +106,7 @@ func TestUnaryServerWithReqeustIDChain(t *testing.T) {
 
 	ctx := context.Background()
 	md := metadata.Pairs(DefaultXRequestIDKey, requestID)
-	ctx = metadata.NewContext(ctx, md)
+	ctx = metadata.NewIncomingContext(ctx, md)
 	_, err := UnaryServerInterceptor(ChainRequestID())(ctx, "xyz", unaryInfo, unaryHandler)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
@@ -125,7 +125,7 @@ func TestUnaryServerWithValidator(t *testing.T) {
 
 	ctx := context.Background()
 	md := metadata.Pairs(DefaultXRequestIDKey, requestID)
-	ctx = metadata.NewContext(ctx, md)
+	ctx = metadata.NewIncomingContext(ctx, md)
 	_, err := UnaryServerInterceptor(RequestIDValidator(shortStringValidator))(ctx, "xyz", unaryInfo, unaryHandler)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
@@ -170,7 +170,7 @@ func TestStreamServerWithRequestID(t *testing.T) {
 	testService := struct{}{}
 	ctx := context.Background()
 	md := metadata.Pairs(DefaultXRequestIDKey, requestID)
-	ctx = metadata.NewContext(ctx, md)
+	ctx = metadata.NewIncomingContext(ctx, md)
 	testStream := &testServerStream{ctx: ctx}
 
 	err := StreamServerInterceptor()(testService, testStream, streamInfo, streamHandler)
@@ -197,7 +197,7 @@ func TestStreamServerWithRequestIDChain(t *testing.T) {
 	testService := struct{}{}
 	ctx := context.Background()
 	md := metadata.Pairs(DefaultXRequestIDKey, requestID)
-	ctx = metadata.NewContext(ctx, md)
+	ctx = metadata.NewIncomingContext(ctx, md)
 	testStream := &testServerStream{ctx: ctx}
 
 	err := StreamServerInterceptor(ChainRequestID())(testService, testStream, streamInfo, streamHandler)
@@ -219,7 +219,7 @@ func TestStreamServerWithValidator(t *testing.T) {
 	testService := struct{}{}
 	ctx := context.Background()
 	md := metadata.Pairs(DefaultXRequestIDKey, requestID)
-	ctx = metadata.NewContext(ctx, md)
+	ctx = metadata.NewIncomingContext(ctx, md)
 	testStream := &testServerStream{ctx: ctx}
 
 	err := StreamServerInterceptor(RequestIDValidator(shortStringValidator))(testService, testStream, streamInfo, streamHandler)
