@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/mercari/go-grpc-interceptor/zap/zapctx"
+	"github.com/higebu/go-grpc-interceptor/zap/zapctx"
 	"github.com/uber-go/zap"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"

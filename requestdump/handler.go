@@ -1,7 +1,7 @@
 package requestdump
 
 import (
-	"github.com/mercari/go-grpc-interceptor/zap/zapctx"
+	"github.com/higebu/go-grpc-interceptor/zap/zapctx"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 )
