@@ -1,9 +1,9 @@
 package zap
 
 import (
-	multiint "github.com/higebu/go-grpc-interceptor/multiinterceptor"
-	"github.com/higebu/go-grpc-interceptor/xrequestid"
-	"github.com/higebu/go-grpc-interceptor/zap/zapctx"
+	multiint "github.com/RTradeLtd/go-grpc-interceptor/multiinterceptor"
+	"github.com/RTradeLtd/go-grpc-interceptor/xrequestid"
+	"github.com/RTradeLtd/go-grpc-interceptor/zap/zapctx"
 	"github.com/uber-go/zap"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"

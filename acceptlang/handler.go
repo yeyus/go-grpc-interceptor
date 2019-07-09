@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	multiint "github.com/higebu/go-grpc-interceptor/multiinterceptor"
+	multiint "github.com/RTradeLtd/go-grpc-interceptor/multiinterceptor"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
