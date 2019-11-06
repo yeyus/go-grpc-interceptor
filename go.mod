@@ -1,4 +1,4 @@
-module github.com/RTradeLtd/go-grpc-interceptor
+module github.com/yeyus/go-grpc-interceptor
 
 go 1.12
 
